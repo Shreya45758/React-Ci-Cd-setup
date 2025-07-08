@@ -13,9 +13,9 @@ test('increments count on button click', () => {
     expect(buttonElement).toBeInTheDocument();
 
     fireEvent.click(buttonElement);
-    expert(buttonElement).toHaveTextContent('count is 1');
+    expect(buttonElement).toHaveTextContent('count is 1');
 
     fireEvent.click(buttonElement);
-    expert(buttonElement).toHaveTextContent('count is 2');
+    expect(buttonElement).toHaveTextContent('count is 2');
 
 })
