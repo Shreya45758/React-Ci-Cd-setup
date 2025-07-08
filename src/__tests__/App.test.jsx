@@ -9,13 +9,14 @@ test('renders Vite + React text', () => {
 
 test('increments count on button click', () => {
     render(<App />);
-    const buttonElement = screen.getByAltText(/count is 0/i);
+    
+    // Find button by role and initial text
+    const buttonElement = screen.getByRole('button', { name: /count is 0/i });
     expect(buttonElement).toBeInTheDocument();
 
     fireEvent.click(buttonElement);
-    expect(buttonElement).toHaveTextContent('count is 1');
+    expect(buttonElement).toHaveTextContent(/count is 1/i);
 
     fireEvent.click(buttonElement);
-    expect(buttonElement).toHaveTextContent('count is 2');
-
-})
+    expect(buttonElement).toHaveTextContent(/count is 2/i);
+});
